@@ -21,6 +21,7 @@
   "homepage": "https://github.com/samuelkim97/wetube_app#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "mongoose": "^6.0.9",
     "morgan": "^1.10.0",
     "pug": "^3.0.2"
   },
