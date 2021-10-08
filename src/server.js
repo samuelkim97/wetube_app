@@ -9,8 +9,11 @@ const PORT = 4000;
 const app = express();
 const logger = morgan("dev");
 
+app.use(logger);
+
 app.set("view engine", "pug");
 app.set("views", process.cwd() + "/src/views");
+app.use(express.urlencoded({ extended: true }));
 app.use("/", globalRouter);
 app.use("/video", videoRouter);
 app.use("/user", userRouter);
@@ -19,4 +22,3 @@ const handleListening = () =>
   console.log(`Server listening on http://localhost:${PORT}`);
 
 app.listen(PORT, handleListening);
-app.use(logger);
