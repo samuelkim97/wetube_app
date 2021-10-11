@@ -2,7 +2,6 @@ import Video from "../models/Video";
 
 export const home = async (req, res) => {
   const videos = await Video.find({});
-  console.log(videos);
   return res.render("home", { pageTitle: "Home", videos });
 };
 
@@ -30,8 +29,8 @@ export const postUpload = async (req, res) => {
   const { title, description, hashtags } = req.body;
   try {
     await Video.create({
-      title: { type: String, required: true },
-      description: { type: String, required: true },
+      title,
+      description,
       hashtags: hashtags.split(",").map((word) => `#${word}`),
     });
     return res.redirect("/");
